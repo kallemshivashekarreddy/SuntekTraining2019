@@ -1,0 +1,34 @@
+
+
+#include<stdio.h>
+#include<string.h>
+
+void main()
+{
+    int i,j,k=0,n,l=0;
+    char s[10][20],p[10];
+    printf("enter no. of strings:");
+    scanf("%d",&n);
+    printf("enter %d strings:",n);
+    for(i=0;i<n;i++)
+    {
+        scanf("%s",s[i]);
+    }
+   for(i=0;i<n;i++)
+   {k=0;
+       for(j=0;s[i][j]!='\0';j++)
+       {
+          
+           if(s[i][j]!=s[i+1][j])
+           {
+          break;
+           }
+           p[k++]=s[i][j];
+           l++;
+       }
+   }
+   for(i=0;i<l;i++)
+   {
+       printf("%c",p[i]);
+   }
+}
