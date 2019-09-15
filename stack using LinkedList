@@ -1,0 +1,85 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct Node
+{
+    int data;
+    struct Node *next;
+}*top=NULL,*newnode;
+void push(int);
+void pop();
+int count=0;
+void main()
+{
+    
+    int key;
+    int p=0;
+  //  struct Node *newnode;
+    
+    
+ 
+     int cc;
+     
+     while(1)
+     {
+         printf("1.push 2.pop 3.exit\n");
+         scanf("%d",&cc);
+     switch(cc)
+     {
+         case 1: printf("Enter element to push\n");
+         scanf("%d",&key);
+         push(key);
+         
+         break;
+         case 2:pop();
+         
+         break;
+         case 3:exit(0);
+         break;
+         default:printf("%d is invalid\n",cc);
+         break;
+         
+     }
+     }
+}
+     void push(int d)
+     {
+          count++;
+            newnode=(struct Node*)malloc(sizeof(struct Node));
+    newnode->next=NULL;
+        if(top==NULL&&newnode!=NULL)
+        {
+            
+            top=newnode;
+            newnode->data=d;
+            printf("%d is pushed  \n",d);
+            
+        }
+        else
+        {
+            
+            newnode->next=top;
+             newnode->data=d;
+             top=newnode;
+             printf("%d is pushed COUNT is---%d \n",d,count);
+        }
+     }
+     void pop()
+     {
+         if(top!=NULL)
+         {
+             count--;
+             struct Node* temp;
+             int k;
+             temp=top;
+            k=  top->data;
+             top=temp->next;
+             free(temp);
+             printf("%d is poped COUNT is---%d \n",k,count);
+         }
+         else
+         printf("UNDER_FLOW\n");
+     }
+     
+    
+
